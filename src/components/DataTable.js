@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 // import { FormFillData } from '../App'
 import { globalContext } from '../App'
 
-const DataTable = ({ data }) => {
+const DataTable = () => {
  
-    // let displayData = useContext(FormFillData)
-    let {employeeData} = useContext(globalContext)
+    // Using useContext to pass intial state (employeeData) as a prop from App.js
+    let {data} = useContext(globalContext)
 
     return (
         <>
@@ -16,6 +16,7 @@ const DataTable = ({ data }) => {
               */}
 
             { /* {displayData && */}
+
                 <table>
                     <thead>
                         <tr>
@@ -27,7 +28,7 @@ const DataTable = ({ data }) => {
                     </thead>
                     <tbody>
                         {
-                            employeeData.map((value) =>
+                            data.map((value) =>
                                 <tr key={value.phoneNo}>
                                     <td>{value.name}</td>
                                     <td>{value.email}</td>
